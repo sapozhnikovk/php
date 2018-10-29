@@ -31,7 +31,8 @@ if ($position === FALSE){
                 Email: <?php echo $email; ?><br />
                 Facebook: <a href = "<?php echo $fb; ?>"><?php echo $fb; ?>
                 </a><br />
-                Twitter: <a href="<?php echo $twitter; ?>"><?php echo $twitter; ?></a><br />
+                Twitter: <a href="<?php echo $twitter; ?>"><?php echo $twitter; 
+                ?></a><br />
             </p>
         </div>
         <div id="footer"></div>
