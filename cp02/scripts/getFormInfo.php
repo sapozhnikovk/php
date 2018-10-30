@@ -1,14 +1,18 @@
 <html>
 <?php
-$first_name = $_REQUEST['first_name'];
-$last_name = $_REQUEST['last_name'];
-$email = $_REQUEST['email'];
-$fb = $_REQUEST['fb'];
+$first_name = trim($_REQUEST['first_name']);
+$last_name = trim($_REQUEST['last_name']);
+$email = trim($_REQUEST['email']);
+$fb =
+        str_replace(
+                "facebook.org",
+                "facebook.com",
+                trim($_REQUEST['fb']));
 $position = strpos($fb, "facebook.com");
 if ($position === FALSE){
-    $fb = "http://facebook/" . $fb;
+    $fb = "http://facebook.com/" . $fb;
 }
-$twitter = $_REQUEST['twitter'];
+$twitter = trim($_REQUEST['twitter']);
 $twitter_url  = "http://twitter.com/";
 $position = strpos($twitter, "@");
 if ($position === FALSE){
