@@ -6,6 +6,7 @@ if (!$result){
     die("<p>Ошибка при выполнении SQL - запроса " . $query_text .
     mysqli_error($connect));
 }
+/*
 //echo '<p>Результат вашего запроса:';
 //echo '<ui>';
 
@@ -13,7 +14,7 @@ if (!$result){
 //    echo "<li>{$row[0]}</li>";
 //}
 //echo '</ui>';
-/*
+
 $return_row = FALSE;
 $uppercase_query_text = trim(strtoupper($query_text));
 $location = strpos($uppercase_query_text, "CREAT");
@@ -39,7 +40,8 @@ if ($location === false ||
 }
  */
 $return_rows = TRUE;
-if (preg_match("/(CREATE|INPUT|UPDATE|DELETE|DROP)/", strtoupper($query_text))){
+if (preg_match("/^\s*(CREATE|INPUT|UPDATE|DELETE|DROP)/i", 
+        trim($query_text))){
     $return_rows = false;
 }
 if ($return_row) {
